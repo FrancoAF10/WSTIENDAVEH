@@ -16,7 +16,13 @@ CREATE TABLE vehiculos (
     CONSTRAINT placa_unique UNIQUE (placa)
 );
 
-insert into vehiculos(marca,modelo,color,precio,placa) values('nose','tampoco','negro',20000,'asjemap');
+INSERT INTO vehiculos (marca, modelo, color, precio, placa)
+VALUES
+('Toyota', 'Corolla', 'Blanco', 25000, 'ABC123'),
+('Honda', 'Civic', 'Negro', 27000, 'XYZ456'),
+('Ford', 'Focus', 'Rojo', 23000, 'JKL789'),
+('Chevrolet', 'Onix', 'Azul', 21000, 'MNO321'),
+('Hyundai', 'Elantra', 'Gris', 26000, 'PQR654');
 ```
 
 Módulos requeridos:

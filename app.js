@@ -21,6 +21,19 @@ app.get("/api/vehiculos", async (req, res) => {
   }
 });
 
+app.get("/api/vehiculos/:marca", async (req, res) => {
+  try {
+    const {marca}=req.params;//URL
+    const [rows] = await pool.query("SELECT * FROM vehiculos where marca=?",[marca]);
+    if(rows.length===0){
+      return res.status(404).json({message:"Vehiculo no encontrado"});
+    }
+    res.status(200).json(rows[0]);
+  } catch (error) {
+    handDBError(res, error);
+  }
+});
+
 app.post("/api/vehiculos", async (req, res) => {
   const { marca, modelo, color, precio, placa } = req.body;
 
